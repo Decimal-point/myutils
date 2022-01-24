@@ -18,9 +18,9 @@ import okhttp3.Response;
  */
 public class GoogleFanyiSupport{
 	private final String baseurl = "https://translate.googleapis.com/translate_a/single?client=gtx";
-	
+
 	public String requestInfo(String target, String from, String to) throws IOException{
-		
+
 		if (StringUtils.isBlank(target)) {
 			target = "null";
 		} else {
@@ -28,10 +28,10 @@ public class GoogleFanyiSupport{
 		}
 		from = StringUtils.isBlank(from)?"auto":from;
 		to = StringUtils.isBlank(to)?"zh-CN":to;
-		
+
 		OkHttpClient okHttpClient = new OkHttpClient();
-		 
-	
+
+
 		Request request = new Request.Builder().addHeader("User-Agent", "Mozilla/5.0")
 							.url(baseurl + "&sl="+ from +"&tl="+to+"&dt=t&q="+target)
 							.get()
@@ -42,7 +42,7 @@ public class GoogleFanyiSupport{
 		String result = string.substring(4, string.indexOf(",")-1);
 		return result;
 	}
-	
+
 	public static void main(String[] args) {
 		GoogleFanyiSupport googleFanyiSupport = new GoogleFanyiSupport();
 		try {
