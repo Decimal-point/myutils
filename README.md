@@ -1,2 +1,3 @@
 # myutils
-myutils include translate api(google) etc.
+  myutils is a tools, including
+  ## google translate api
